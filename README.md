@@ -1,7 +1,5 @@
 ---
 title: Citizen Policy Chatbot
-colorFrom: green
-colorTo: gray
 sdk: docker
 app_port: 7860
 pinned: false
