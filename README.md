@@ -1,6 +1,5 @@
 ---
 title: Citizen Policy Chatbot
-emoji: ⚖️
 colorFrom: green
 colorTo: gray
 sdk: docker
