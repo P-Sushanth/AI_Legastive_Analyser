@@ -35,7 +35,29 @@ An AI-powered dashboard designed to help citizens understand complex legal docum
 ### 2. Setup
 ```bash
 # Clone the repository
-git clone <your-repo-url>
+git clone https://github.com/P-Sushanth/AI_Legastive_Analyser
+cd Law-Project
+
+# Create and activate virtual environment
+python -m venv venv
+# On Windows
+venv\Scripts\activate
+# On Linux/macOS
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt>
+cd Law-Project
+
+# Create and activate virtual environment
+python -m venv venv
+# On Windows
+venv\Scripts\activate
+# On Linux/macOS
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt>
 cd Law-Project
 
 # Create and activate virtual environment
