@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citizen Policy Chatbot</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <h2>Configuration</h2>
+            <div class="form-group">
+                <label for="pdf-select">Select a Policy Document:</label>
+                <select id="pdf-select">
+                    <option value="">Loading...</option>
+                </select>
+            </div>
+
+            <button id="clear-btn" class="btn btn-secondary">Clear History</button>
+
+            <div class="divider"></div>
+
+            <h2>Usage Statistics</h2>
+
+            <div class="refresh-container">
+                <button id="refresh-btn" class="btn btn-text">⟳ Refresh</button>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-label">Total Calls</span>
+                    <span class="stat-val" id="stat-calls">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Information Density</span>
+                    <span class="stat-val text-green" id="stat-ratio">0.0%</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Avg Latency</span>
+                    <span class="stat-val" id="stat-lat">0ms</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Total Savings</span>
+                    <span class="stat-val" id="stat-savings">$0.00</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Original Tokens</span>
+                    <span class="stat-val" id="stat-orig">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Compressed Tokens</span>
+                    <span class="stat-val" id="stat-comp">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Response Tokens</span>
+                    <span class="stat-val" id="stat-resp">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Tokens Saved</span>
+                    <span class="stat-val text-green" id="stat-saved">0</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header>
+                <h1><span class="icon"></span> Citizen Policy Chatbot</h1>
+                <p>Ask questions about complex legal documents. Powered by <b>Scaledown.ai</b>.</p>
+            </header>
+
+            <div class="scroll-area">
+                <div id="summary-container" class="summary-container" style="display: none;">
+                    <div class="summary-header">
+                        <h3>Policy Quick Summary</h3>
+                        <span class="high-density-badge">High Density</span>
+                    </div>
+                    <div id="summary-content" class="summary-content">
+                        <span class="thinking">Generating simplified summary...</span>
+                    </div>
+                </div>
+
+                <div class="chat-container" id="chat-history">
+                    <!-- Dynamic Messages -->
+                </div>
+            </div>
+
+            <div class="input-container">
+                <input type="text" id="chat-input" placeholder="What is the legal age to drive in India? (Press Enter)"
+                    autocomplete="off">
+                <button id="send-btn" class="btn btn-primary">Send</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Template for user message -->
+    <template id="tmpl-user">
+        <div class="message-row user-row">
+            <div class="message user-msg">
+                <div class="msg-content"></div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Template for bot message -->
+    <template id="tmpl-bot">
+        <div class="message-row bot-row">
+            <div class="message bot-msg">
+                <div class="msg-icon"></div>
+                <div class="msg-content"></div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Template for metrics card -->
+    <template id="tmpl-metrics">
+        <div class="metrics-row">
+            <div class="metric-card">
+                <div class="metric-title">Original Tokens</div>
+                <div class="metric-val text-orange m-orig">0</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-title">Compressed Tokens</div>
+                <div class="metric-val text-blue m-comp">0</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-title">Reduction</div>
+                <div class="metric-val text-green m-red">0.0%</div>
+            </div>
+        </div>
+    </template>
+
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
